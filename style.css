@@ -1,0 +1,24 @@
+:root {
+    --bg-color: #990d12;
+    --fg-color: #eee;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    font-family: sans-serif;
+    text-align: center;
+}
+
+header, main, footer {
+    margin: 3rem;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+footer {
+    opacity: 0.7;
+}
