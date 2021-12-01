@@ -1,10 +1,16 @@
 var seconds = 0;
+var cyclesDone = 0;
+const POMODORO_LENGTH = 4;
 var interval;
 let timer = document.getElementById("timer");
 let cycles = document.getElementById("cycles");
 
 function nextInterval() {
-    countdown(25);
+    if (cyclesDone == POMODORO_LENGTH) {
+        countdown(5);
+    } else {
+        countdown(25);
+    }
 }
 
 function countdown(mins) {
@@ -14,6 +20,12 @@ function countdown(mins) {
         timer.innerText = `${Math.floor(seconds / 60)}:${seconds % 60}`;
         if(!seconds){
              clearInterval(interval);
+             if (cyclesDone == POMODORO_LENGTH) {
+                cyclesDone = 0;
+            } else {
+                cyclesDone++;
+            }
+            cycles.innerText = cyclesDone;
         }
    },1000)
 }
